@@ -1,0 +1,20 @@
+/* Gallery Css */
+
+#gallery img {
+	width: 700px;
+	height: auto;
+}
+
+#gallery table {
+	width: 50%;
+	text-align: center;
+	
+}
+
+#gallery h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	font-size: 28px;
+	opacity: .9;
+	color: #666;
+}
