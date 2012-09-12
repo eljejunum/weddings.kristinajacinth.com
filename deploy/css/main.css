@@ -52,8 +52,8 @@ nav a:active {
 	color: #666;
 }
 
-/* Article Styles */
-article  table{
+/* Index Styles */
+#index  table{
 	position: relative;
 	border: 0px;
 	text-align:center;
@@ -62,13 +62,13 @@ article  table{
 	margin-right: auto;
 }
 
-article img{
+#index img{
 	width:200px;
 	height:200px;
 	border: none;
 }
 
-article table #lastRow {
+#index table #lastRow {
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
@@ -83,12 +83,55 @@ article a:hover {
 	color: #FCF2FF;
 }
 
+/*Info & About Pages*/
+#about {
+	text-align:center;
+}
+
+#about table {
+	position: relative;
+	border: 0px;
+	text-align:center;
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+}
+	
+#aboutImg{
+	width:500px;
+}
+
+#info {
+	text-align:center;
+}
+
+#info table {
+	position: relative;
+	border: 0px;
+	text-align:center;
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#infoImg{
+	width:700px;
+}
+
+/* Contact */
+#email {	
+	color: #666;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
 /* Footer */
 footer {
 	text-align: center;
 	font-size: 10px;
 	font-family: Verdana, Geneva, sans-serif;
 	width: auto;
+	color: #666;
 }
 
 footer table {
