@@ -1,0 +1,17 @@
+application: kjphoto-weddings
+version: 1
+runtime: php
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /
+  script: com/index.html
+
+- url: /(.*\.(html|js|jpeg|gif|png|jpg|pdf|ico|bmp|css|otf|eot|svg|ttf|woff))
+  static_files: com/\1
+  upload: com/(.*\.(html|js|jpeg|gif|png|jpg|pdf|ico|bmp|css|otf|eot|svg|ttf|woff)) 
