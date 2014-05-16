@@ -4,14 +4,184 @@ runtime: php
 api_version: 1
 threadsafe: yes
 
+default_expiration: "30d"
+ 
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
-
-- url: /
-  script: com/index.html
-
-- url: /(.*\.(html|js|jpeg|gif|png|jpg|pdf|ico|bmp|css|otf|eot|svg|ttf|woff))
+- url: /(.*\.(appcache|manifest))
+  mime_type: text/cache-manifest
   static_files: com/\1
-  upload: com/(.*\.(html|js|jpeg|gif|png|jpg|pdf|ico|bmp|css|otf|eot|svg|ttf|woff)) 
+  upload: com/(.*\.(appcache|manifest))
+  expiration: "0m"
+ 
+- url: /(.*\.atom)
+  mime_type: application/atom+xml
+  static_files: com/\1
+  upload: com/(.*\.atom)
+  expiration: "1h"
+ 
+- url: /(.*\.crx)
+  mime_type: application/x-chrome-extension
+  static_files: com/\1
+  upload: com/(.*\.crx)
+ 
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: com/\1
+  upload: com/(.*\.css)
+ 
+- url: /(.*\.eot)
+  mime_type: application/vnd.ms-fontobject
+  static_files: com/\1
+  upload: com/(.*\.eot)
+ 
+- url: /(.*\.htc)
+  mime_type: text/x-component
+  static_files: com/\1
+  upload: com/(.*\.htc)
+ 
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: com/\1
+  upload: com/(.*\.html)
+  expiration: "1h"
+ 
+- url: /(.*\.ico)
+  mime_type: image/x-icon
+  static_files: com/\1
+  upload: com/(.*\.ico)
+  expiration: "7d"
+ 
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: com/\1
+  upload: com/(.*\.js)
+ 
+- url: /(.*\.json)
+  mime_type: application/json
+  static_files: com/\1
+  upload: com/(.*\.json)
+  expiration: "1h"
+ 
+- url: /(.*\.m4v)
+  mime_type: video/m4v
+  static_files: com/\1
+  upload: com/(.*\.m4v)
+ 
+- url: /(.*\.mp4)
+  mime_type: video/mp4
+  static_files: com/\1
+  upload: com/(.*\.mp4)
+ 
+- url: /(.*\.(ogg|oga))
+  mime_type: audio/ogg
+  static_files: com/\1
+  upload: com/(.*\.(ogg|oga))
+ 
+- url: /(.*\.ogv)
+  mime_type: video/ogg
+  static_files: com/\1
+  upload: com/(.*\.ogv)
+ 
+- url: /(.*\.otf)
+  mime_type: font/opentype
+  static_files: com/\1
+  upload: com/(.*\.otf)
+ 
+- url: /(.*\.rss)
+  mime_type: application/rss+xml
+  static_files: com/\1
+  upload: com/(.*\.rss)
+  expiration: "1h"
+ 
+- url: /(.*\.safariextz)
+  mime_type: application/octet-stream
+  static_files: com/\1
+  upload: com/(.*\.safariextz)
+ 
+- url: /(.*\.(svg|svgz))
+  mime_type: images/svg+xml
+  static_files: com/\1
+  upload: com/(.*\.(svg|svgz))
+ 
+- url: /(.*\.swf)
+  mime_type: application/x-shockwave-flash
+  static_files: com/\1
+  upload: com/(.*\.swf)
+ 
+- url: /(.*\.ttf)
+  mime_type: font/truetype
+  static_files: com/\1
+  upload: com/(.*\.ttf)
+ 
+- url: /(.*\.txt)
+  mime_type: text/plain
+  static_files: com/\1
+  upload: com/(.*\.txt)
+ 
+- url: /(.*\.unity3d)
+  mime_type: application/vnd.unity
+  static_files: com/\1
+  upload: com/(.*\.unity3d)
+ 
+- url: /(.*\.webm)
+  mime_type: video/webm
+  static_files: com/\1
+  upload: com/(.*\.webm)
+ 
+- url: /(.*\.webp)
+  mime_type: image/webp
+  static_files: com/\1
+  upload: com/(.*\.webp)
+ 
+- url: /(.*\.woff)
+  mime_type: application/x-font-woff
+  static_files: com/\1
+  upload: com/(.*\.woff)
+ 
+- url: /(.*\.xml)
+  mime_type: application/xml
+  static_files: com/\1
+  upload: com/(.*\.xml)
+  expiration: "1h"
+ 
+- url: /(.*\.xpi)
+  mime_type: application/x-xpinstall
+  static_files: com/\1
+  upload: com/(.*\.xpi)
+ 
+# image files
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: com/\1
+  upload: com/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+ 
+# audio files
+- url: /(.*\.(mid|midi|mp3|wav))
+  static_files: com/\1
+  upload: com/(.*\.(mid|midi|mp3|wav))  
+ 
+# windows files
+- url: /(.*\.(doc|exe|ppt|rtf|xls))
+  static_files: com/\1
+  upload: com/(.*\.(doc|exe|ppt|rtf|xls))
+ 
+# compressed files
+- url: /(.*\.(bz2|gz|rar|tar|tgz|zip))
+  static_files: com/\1
+  upload: com/(.*\.(bz2|gz|rar|tar|tgz|zip))
+ 
+# index files
+- url: /(.+)/
+  static_files: com/\1/index.html
+  upload: com/(.+)/index.html
+  expiration: "15m"
+ 
+- url: /(.+)
+  static_files: com/\1/index.html
+  upload: com/(.+)/index.html
+  expiration: "15m"
+ 
+# site root
+- url: /
+  static_files: com/index.html
+  upload: com/index.html
+  expiration: "15m"
